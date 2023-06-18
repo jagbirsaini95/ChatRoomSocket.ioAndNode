@@ -3,9 +3,16 @@
   "version": "1.0.0",
   "description": "socket.io and html css and js chat room",
   "main": "index.js",
+  "type": "commonjs",
   "scripts": {
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "jagbir singh",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "nodemon": "^2.0.22",
+    "socket.io": "^4.6.2"
+  }
 }
