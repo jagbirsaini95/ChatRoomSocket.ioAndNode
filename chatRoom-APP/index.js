@@ -9,7 +9,8 @@ io.on('connection', (socket) => {
         socket.broadcast.emit('user-joined', user);
     })
     socket.on('send-message', (message) => {
-        socket.broadcast.emit('recieve', { message: message, name: users[socket.id] })
+        console.log(message);
+        socket.broadcast.emit('recieve', user = { message: message, name: users[socket.id].name })
     })
 })
 

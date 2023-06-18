@@ -13,9 +13,23 @@ const appendMessage = (message, position) => {
     messageBody.append(messageBox)
 }
 
+sendForm.addEventListener('submit', (e) => {
+    console.log(e);
+    e.preventDefault();
+    const message = e.target[0].value;
+    appendMessage(`you: ${message}`, 'right')
+    socket.emit('send-message', message)
+    message.value = '';
+})
+
 const userName = prompt('Please enter your name to join chat ');
 socket.emit('new-user-joined', user = { name: userName })
 
 socket.on('user-joined', (user) => {
-    appendMessage(`${user.name} joined the chat room`, 'left');
+    appendMessage(`${user.name} joined the chat room`, 'center');
+})
+
+socket.on('recieve', (user) => {
+    console.log(user);
+    appendMessage(`${user.message}: ${user.name}`, 'left');
 })
