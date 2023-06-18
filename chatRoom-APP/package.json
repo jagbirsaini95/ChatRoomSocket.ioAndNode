@@ -1,0 +1,11 @@
+{
+  "name": "chatroom-app",
+  "version": "1.0.0",
+  "description": "socket.io and html css and js chat room",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jagbir singh",
+  "license": "ISC"
+}
