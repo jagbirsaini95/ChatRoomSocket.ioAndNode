@@ -18,18 +18,18 @@ const appendMessage = (message, position) => {
     messageBody.append(messageBox)
 }
 
-const scrollToBottom=(el)=>{
+const scrollToBottom = (el) => {
     let height = el.scrollHeight;
-    el.scrollTop=height;
+    el.scrollTop = height;
 }
 
-const closeChatbot=()=>{
+const closeChatbot = () => {
     console.log("chatbot closed");
     chatroomContainer.classList.add('display-none')
     chatroomIcon.classList.remove('display-none')
 }
 
-const openChatbot=()=>{
+const openChatbot = () => {
     console.log("chatbot opened");
     chatroomIcon.classList.add('display-none')
     chatroomContainer.classList.remove('display-none')
@@ -56,14 +56,14 @@ chatroomIcon.addEventListener('click', () => {
 })
 
 endChatBtn.addEventListener('click', () => {
-    socket.emit('disconnected',userName)
-    endChatBtn.style.display="none";
+    socket.emit('disconnected', userName)
+    endChatBtn.style.display = "none";
     closeChatbot();
 })
 let userName;
-do{
-     userName = prompt('Please enter your name to join chat ');
-}while(!userName || userName.length<4)
+do {
+    userName = prompt('Please enter your name to join chat ');
+} while (!userName || userName.length < 4)
 
 socket.emit('new-user-joined', user = { name: userName })
 
@@ -74,9 +74,9 @@ socket.on('user-joined', (user) => {
 socket.on('you-joined', (user) => {
     openChatbot();
     appendMessage(`you joined the chat room`, 'center');
-    userNameContainer.innerHTML =`Logged in as:<b class="upper-case"> ${user.name} </b>`;
+    userNameContainer.innerHTML = `Logged in as:<b class="upper-case"> ${user.name} </b>`;
     userNameContainer.classList.add('border');
-    userNameContainer.style.textAlign="right"
+    userNameContainer.style.textAlign = "right"
 })
 
 socket.on('recieve', (user) => {
