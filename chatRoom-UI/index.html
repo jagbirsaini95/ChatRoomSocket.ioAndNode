@@ -7,91 +7,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChatRoom</title>
     <script defer src="http://localhost:8000/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script defer src="js/chat.js"></script>
-    <style>
-        .flex {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .border {
-            border: 1px solid red;
-        }
-
-        .container {
-            flex-direction: column;
-            padding: 20px;
-        }
-
-        .box-header {
-            width: 100%;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .box-header h2 {
-            margin: 0;
-        }
-
-        .close-button {
-            height: 20px;
-        }
-
-        .box-body {
-            min-height: 50vh;
-            width: 100%;
-            overflow: auto;
-
-        }
-
-        .left {
-            text-align: left;
-            clear: both;
-            margin: 5px 0;
-        }
-        .center {
-            text-align: center;
-            clear: both;
-            margin: 5px 0;
-        }
-        .right {
-            text-align: right;
-            clear: both;
-            margin: 5px 0;
-        }
-
-        .box-footer {
-            width: 100%;
-            margin-top: 10px;
-        }
-
-        .box-footer form {
-            justify-content: space-between;
-        }
-
-        textarea {}
-    </style>
+   <link href="./css/style.css" rel="stylesheet"></style>
 </head>
 
 <body>
-    <div class="container border flex">
+    <div class="container border flex display-none border-radius-container" id="chatroom-container">
         <div class="box-header border flex">
-            <h2>I-chatroom</h2>
-            <button class="close-button">X</button>
+
+            <i class="fa fa-comments-o"></i>
+            <div class="flex header-btns">
+                <div class="flex chat-btns">
+                    <button class="end-chat-button" id="end-chat-btn">End chat</button>
+                    <button class="start-new-chat-button" id="start-new-chat-btn">Start new chat</button>
+                </div>
+
+                <button class="" id="close-btn"><i class="fa fa-times"></i></button>
+            </div>
         </div>
-        <div class="box-body border">
-            <!-- <div class="left border">123</div>
-            <div class="right border">123</div> -->
+        <div class="" id="user-name"></div>
+        <div class="box-body border" tabindex="0">
+            <!-- <div class="left border-0">123</div>
+            <div class="left border-0">123</div>
+            <div class="right border-0">123</div>
+            <div class="center border-0">123</div>
+            <div class="left border-0">123</div>
+            <div class="right border-0">123</div>
+            <div class="left border-0">123</div>
+            <div class="left border-0">123</div>
+            <div class="center border-0">123</div>
+            <div class="right border-0">123</div>
+            <div class="left border-0">123</div>
+            <div class="left border-0">123</div>
+            <div class="left border-0">123</div>
+            <div class="left border-0">123</div>
+            <div class="right border-0">123</div> -->
+            <!-- <button class=""></button> -->
         </div>
-        <div class="box-footer border">
+        <div class="box-footer ">
             <form class="flex" id="send-form">
-                <textarea name="message" id="message" cols="33" rows="2"></textarea>
-                <button type="submit">send</button>
+                <textarea autofocus="true" name="message" id="message" class="border" cols="33" rows="2" required
+                    placeholder="Enter your message here"></textarea>
+                <button type="submit" class="border send-btn">send</button>
             </form>
         </div>
     </div>
+    <button id="chatroom-icon" class="chatroom-bot-btn ">
+        <img class="chatroom-image"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcnyRjZkfAg8ONQsRl33BjMtrZsbq-ZXgJ6A&usqp=CAU"
+            alt="chat room icon" />
+    </button>
 </body>
 
 </html>
